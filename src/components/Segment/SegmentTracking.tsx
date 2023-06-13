@@ -29,7 +29,6 @@ const SegmentTracking = () => {
 		// Segment's inEU function handles the logic for whether the user needs this banner or not
 		// Relevant docs: https://www.npmjs.com/package/@segment/in-eu
 		if (!inEU()) {
-			console.log("Not in EU, setting cookie to true");
 			// Default the cookie to true if not required to have cookie consient
 			Cookies.set(__CONSENT_COOKIE_NAME, true);
 			// Update state for the cookies and banner
@@ -37,7 +36,6 @@ const SegmentTracking = () => {
 			setBannerVisible(false);
 			return;
 		} else {
-			console.log("In EU, setting cookie to false");
 			setBannerVisible(true);
 			setAllowCookies(getCookieConsentValue(__CONSENT_COOKIE_NAME) === "true");
 		}
